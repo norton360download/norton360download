@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shield360 Security - Advanced Device Protection</title>
+    <style>
+        :root {
+            --primary: #0066cc;
+            --primary-hover: #0052a3;
+            --accent: #ffcc00;
+            --dark: #1a1a1a;
+            --light-bg: #f8f9fa;
+            --text: #333333;
+            --text-muted: #666666;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            color: var(--text);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid #e5e5e5;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            text-align: center;
+            transition: background-color 0.2s, transform 0.1s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .btn-large {
+            padding: 16px 32px;
+            font-size: 1.1rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%);
+            color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #d1d5db;
+            max-width: 700px;
+            margin: 0 auto 32px;
+        }
+
+        .hero-cta {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .hero-meta {
+            font-size: 0.875rem;
+            color: #9ca3af;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background-color: var(--light-bg);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 32px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid #eef0f2;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 12px;
+            font-size: 1.3rem;
+            color: var(--dark);
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* System Requirements / Info */
+        .requirements {
+            padding: 60px 0;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        .req-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 24px;
+        }
+
+        .req-item {
+            border-left: 3px solid var(--primary);
+            padding-left: 12px;
+        }
+
+        .req-item strong {
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: #9ca3af;
+            padding: 40px 0 20px;
+            font-size: 0.875rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 24px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 16px;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: #9ca3af;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Header -->
+    <header>
+        <div class="container navbar">
+            <a href="#" class="logo">
+                Shield<span>360</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#requirements">Requirements</a></li>
+                <li><a href="#support">Support</a></li>
+            </ul>
+            <a href="#download" class="btn btn-primary">Get Shield360</a>
+        </div>
+    </header>
+
+    <!-- Main Hero Section -->
+    <main>
+        <section class="hero" id="download">
+            <div class="container">
+                <h1>All-in-One Cyber Protection for Your Devices</h1>
+                <p>Real-time malware defense, secure VPN, and identity protection combined into a single unified security suite.</p>
+                
+                <div class="hero-cta">
+                    <a href="#" class="btn btn-primary btn-large">Download Installer</a>
+                    <span class="hero-meta">Version 24.2 | Compatible with Windows, macOS, Android, and iOS</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Grid -->
+        <section class="features" id="features">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Key Security Features</h2>
+                    <p>Comprehensive protection against modern online threats.</p>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3>Real-Time Threat Detection</h3>
+                        <p>Continuous monitoring to detect and isolate ransomware, viruses, spyware, and emerging online threats before they affect your system.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Secure Virtual Private Network</h3>
+                        <p>Encrypt your internet traffic with bank-grade encryption to browse privately and securely on public Wi-Fi networks.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Smart Firewall</h3>
+                        <p>Monitor incoming and outgoing network communications to prevent unauthorized access and protect personal files.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Password Manager</h3>
+                        <p>Securely generate, store, and auto-fill complex passwords and login credentials across all supported devices.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Cloud Backup</h3>
+                        <p>Automatic encrypted backup options for important files to safeguard against hard drive failures and ransomware extortion.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Dark Web Monitoring</h3>
+                        <p>Proactive alerts if personal data, email addresses, or credentials are identified in known public data breaches.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- System Requirements -->
+        <section class="requirements" id="requirements">
+            <div class="container">
+                <h2>System Requirements</h2>
+                <div class="req-list">
+                    <div class="req-item">
+                        <strong>Windows OS</strong>
+                        <span>Windows 11, 10 (64-bit)</span>
+                    </div>
+                    <div class="req-item">
+                        <strong>macOS</strong>
+                        <span>macOS 12.0 or later</span>
+                    </div>
+                    <div class="req-item">
+                        <strong>Mobile</strong>
+                        <span>Android 8.0+ / iOS 15+</span>
+                    </div>
+                    <div class="req-item">
+                        <strong>Storage & RAM</strong>
+                        <span>2 GB RAM, 1.5 GB disk space</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <strong>Shield360 Security</strong>
+                    <p>Protecting digital privacy and device integrity.</p>
+                </div>
+                <ul class="footer-links">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">System Status</a></li>
+                    <li><a href="#">Documentation</a></li>
+                </ul>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Shield360. All rights reserved. For demonstration and educational purposes.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
